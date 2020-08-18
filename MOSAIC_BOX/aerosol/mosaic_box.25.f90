@@ -5966,6 +5966,72 @@
       ename(jhcl)    = "HCl"
       ename(jmsa)    = "CH3SO3H"
 
+! mass accommodation coefficients
+      accom(ih2so4_g)  = 0.1
+      accom(ihno3_g)   = 0.1
+      accom(ihcl_g)    = 0.1
+      accom(inh3_g)    = 0.1
+      accom(imsa_g)    = 0.1
+      accom(iaro1_g)   = 0.1
+      accom(iaro2_g)   = 0.1
+      accom(iaro3_g)   = 0.1
+      accom(iaro4_g)   = 0.1
+      accom(ialk1_g)   = 0.1
+      accom(iole1_g)   = 0.1
+      accom(iapi1_g)   = 0.1
+      accom(iapi2_g)   = 0.1
+      accom(iapi3_g)   = 0.1
+      accom(iapi4_g)   = 0.1
+      accom(ilim1_g)   = 0.1
+      accom(ilim2_g)   = 0.1
+
+
+! molecular weights of gas and aerosol species
+! gas
+      mw_gas_mac(ih2so4_g) = 98.0
+      mw_gas_mac(ihno3_g)  = 63.0
+      mw_gas_mac(ihcl_g)   = 36.5
+      mw_gas_mac(inh3_g)   = 17.0
+      mw_gas_mac(imsa_g)   = 96.0
+      mw_gas_mac(iaro1_g)  = 150.0
+      mw_gas_mac(iaro2_g)  = 150.0
+      mw_gas_mac(iaro3_g)  = 150.0
+      mw_gas_mac(iaro4_g)  = 150.0
+      mw_gas_mac(ialk1_g)  = 140.0
+      mw_gas_mac(iole1_g)  = 140.0
+      mw_gas_mac(iapi1_g)  = 200.0
+      mw_gas_mac(iapi2_g)  = 200.0
+      mw_gas_mac(iapi3_g)  = 200.0
+      mw_gas_mac(iapi4_g)  = 200.0
+      mw_gas_mac(ilim1_g)  = 200.0
+      mw_gas_mac(ilim2_g)  = 200.0
+
+! aerosol
+      mw_aer_mac(iso4_a) = 96.0
+      mw_aer_mac(ino3_a) = 62.0
+      mw_aer_mac(icl_a)  = 35.5
+      mw_aer_mac(imsa_a) = 95.0	! CH3SO3
+      mw_aer_mac(ico3_a) = 60.0
+      mw_aer_mac(inh4_a) = 18.0
+      mw_aer_mac(ina_a)  = 23.0
+      mw_aer_mac(ica_a)  = 40.0
+      mw_aer_mac(ioin_a) = 1.0		! not used
+      mw_aer_mac(ibc_a)  = 1.0		! not used
+      mw_aer_mac(ioc_a)  = 1.0		! 200 assumed for primary organics in ASTEM
+      mw_aer_mac(iaro1_a)= mw_gas_mac(iaro1_g)
+      mw_aer_mac(iaro2_a)= mw_gas_mac(iaro2_g)
+      mw_aer_mac(iaro3_a)= mw_gas_mac(iaro3_g)
+      mw_aer_mac(iaro4_a)= mw_gas_mac(iaro4_g)
+      mw_aer_mac(ialk1_a)= mw_gas_mac(ialk1_g)
+      mw_aer_mac(iole1_a)= mw_gas_mac(iole1_g)
+      mw_aer_mac(iapi1_a)= mw_gas_mac(iapi1_g)
+      mw_aer_mac(iapi2_a)= mw_gas_mac(iapi2_g)
+      mw_aer_mac(iapi3_a)= mw_gas_mac(iapi3_g)
+      mw_aer_mac(iapi4_a)= mw_gas_mac(iapi4_g)
+      mw_aer_mac(ilim1_a)= mw_gas_mac(ilim1_g)
+      mw_aer_mac(ilim2_a)= mw_gas_mac(ilim2_g)
+
+
 ! molecular weights of electrolytes
       mw_electrolyte(jnh4so4) = 132.0
       mw_electrolyte(jlvcite) = 247.0
@@ -5991,21 +6057,59 @@
       mw_electrolyte(joc)     = 1.0
       mw_electrolyte(jbc)     = 1.0
       mw_electrolyte(join)    = 1.0
-      mw_electrolyte(jaro1)   = 150.0
-      mw_electrolyte(jaro2)   = 150.0
-      mw_electrolyte(jaro3)   = 150.0
-      mw_electrolyte(jaro4)   = 150.0
-      mw_electrolyte(jalk1)   = 140.0
-      mw_electrolyte(jole1)   = 140.0
-
-      mw_electrolyte(japi1)   = 152.0 ! C5H12O5
-      mw_electrolyte(japi2)   = 168.0 ! C5H12O6
-      mw_electrolyte(japi3)   = 136.0 ! SVOC1
-      mw_electrolyte(japi4)   = 272.0 ! Dimer1
-      mw_electrolyte(jlim1)   = 136.0 ! SVOC2
-      mw_electrolyte(jlim2)   = 272.0 ! Dimer2
-
+      mw_electrolyte(jaro1)   = mw_gas_mac(iaro1_g)
+      mw_electrolyte(jaro2)   = mw_gas_mac(iaro2_g)
+      mw_electrolyte(jaro3)   = mw_gas_mac(iaro3_g)
+      mw_electrolyte(jaro4)   = mw_gas_mac(iaro4_g)
+      mw_electrolyte(jalk1)   = mw_gas_mac(ialk1_g)
+      mw_electrolyte(jole1)   = mw_gas_mac(iole1_g)
+      mw_electrolyte(japi1)   = mw_gas_mac(iapi1_g)
+      mw_electrolyte(japi2)   = mw_gas_mac(iapi2_g)
+      mw_electrolyte(japi3)   = mw_gas_mac(iapi3_g)
+      mw_electrolyte(japi4)   = mw_gas_mac(iapi4_g)
+      mw_electrolyte(jlim1)   = mw_gas_mac(ilim1_g)
+      mw_electrolyte(jlim2)   = mw_gas_mac(ilim2_g)
       mw_electrolyte(jh2o)    = 18.0
+
+! molecular weights of compounds
+      mw_comp_a(jnh4so4) = 132.0
+      mw_comp_a(jlvcite) = 247.0
+      mw_comp_a(jnh4hso4)= 115.0
+      mw_comp_a(jnh4msa) = 113.0
+      mw_comp_a(jnh4no3) = 80.0
+      mw_comp_a(jnh4cl)  = 53.5
+      mw_comp_a(jnacl)   = 58.5
+      mw_comp_a(jnano3)  = 85.0
+      mw_comp_a(jna2so4) = 142.0
+      mw_comp_a(jna3hso4)= 262.0
+      mw_comp_a(jnahso4) = 120.0
+      mw_comp_a(jnamsa)  = 118.0
+      mw_comp_a(jcaso4)  = 136.0
+      mw_comp_a(jcamsa2) = 230.0
+      mw_comp_a(jcano3)  = 164.0
+      mw_comp_a(jcacl2)  = 111.0
+      mw_comp_a(jcaco3)  = 100.0
+      mw_comp_a(jh2so4)  = 98.0
+      mw_comp_a(jhhso4)  = 98.0
+      mw_comp_a(jhno3)   = 63.0
+      mw_comp_a(jhcl)    = 36.5
+      mw_comp_a(jmsa)    = 96.0
+      mw_comp_a(joc)	 = 1.0
+      mw_comp_a(jbc)	 = 1.0
+      mw_comp_a(join)    = 1.0
+      mw_comp_a(jaro1)	 = mw_gas_mac(iaro1_g)
+      mw_comp_a(jaro2)	 = mw_gas_mac(iaro2_g)
+      mw_comp_a(jaro3)	 = mw_gas_mac(iaro3_g)
+      mw_comp_a(jaro4)	 = mw_gas_mac(iaro4_g)
+      mw_comp_a(jalk1)	 = mw_gas_mac(ialk1_g)
+      mw_comp_a(jole1)	 = mw_gas_mac(iole1_g)
+      mw_comp_a(japi1)	 = mw_gas_mac(iapi1_g)
+      mw_comp_a(japi2)	 = mw_gas_mac(iapi2_g)
+      mw_comp_a(japi3)	 = mw_gas_mac(iapi3_g)
+      mw_comp_a(japi4)	 = mw_gas_mac(iapi4_g)
+      mw_comp_a(jlim1)	 = mw_gas_mac(ilim1_g)
+      mw_comp_a(jlim2)	 = mw_gas_mac(ilim2_g)
+      mw_comp_a(jh2o)    = 18.0
 
 
 ! molecular weights of ions [g/mol]
@@ -6110,111 +6214,9 @@
 !        dens_comp_a(je) = 1.0
 !      enddo
 
-! mass accommodation coefficients
-      accom(ih2so4_g)  = 0.1
-      accom(ihno3_g)   = 0.1
-      accom(ihcl_g)    = 0.1
-      accom(inh3_g)    = 0.1
-      accom(imsa_g)    = 0.1
-      accom(iaro1_g)   = 0.1
-      accom(iaro2_g)   = 0.1
-      accom(iaro3_g)   = 0.1
-      accom(iaro4_g)   = 0.1
-      accom(ialk1_g)   = 0.1
-      accom(iole1_g)   = 0.1
-      accom(iapi1_g)   = 0.1
-      accom(iapi2_g)   = 0.1
-      accom(iapi3_g)   = 0.1
-      accom(iapi4_g)   = 0.1
-      accom(ilim1_g)   = 0.1
-      accom(ilim2_g)   = 0.1
 
-! molecular weights of generic gas species
-      mw_gas_mac(ih2so4_g)= 98.0
-      mw_gas_mac(ihno3_g) = 63.0
-      mw_gas_mac(ihcl_g)  = 36.5
-      mw_gas_mac(inh3_g) = 17.0
-      mw_gas_mac(imsa_g) = 96.0	! CH3SO3
-      mw_gas_mac(iaro1_g)= 150.0
-      mw_gas_mac(iaro2_g)= 150.0
-      mw_gas_mac(iaro3_g)= 150.0
-      mw_gas_mac(iaro4_g)= 150.0
-      mw_gas_mac(ialk1_g)= 140.0
-      mw_gas_mac(iole1_g)= 140.0
-      mw_gas_mac(iapi1_g)= 152.0 ! C5H12O5
-      mw_gas_mac(iapi2_g)= 168.0 ! C5H12O6
-      mw_gas_mac(iapi3_g)= 136.0 ! SVOC1
-      mw_gas_mac(iapi4_g)= 272.0 ! Dimer1
-      mw_gas_mac(ilim1_g)= 136.0 ! SVOC2
-      mw_gas_mac(ilim2_g)= 272.0 ! Dimer2
 
-! molecular weights of generic aerosol species
-      mw_aer_mac(iso4_a) = 96.0
-      mw_aer_mac(ino3_a) = 62.0
-      mw_aer_mac(icl_a)  = 35.5
-      mw_aer_mac(imsa_a) = 95.0	! CH3SO3
-      mw_aer_mac(ico3_a) = 60.0
-      mw_aer_mac(inh4_a) = 18.0
-      mw_aer_mac(ina_a)  = 23.0
-      mw_aer_mac(ica_a)  = 40.0
-      mw_aer_mac(ioin_a) = 1.0		! not used
-      mw_aer_mac(ibc_a)  = 1.0		! not used
-      mw_aer_mac(ioc_a)  = 1.0	! 200 assumed for primary organics
-      mw_aer_mac(iaro1_a)= 150.0
-      mw_aer_mac(iaro2_a)= 150.0
-      mw_aer_mac(iaro3_a)= 150.0
-      mw_aer_mac(iaro4_a)= 150.0
-      mw_aer_mac(ialk1_a)= 140.0
-      mw_aer_mac(iole1_a)= 140.0
 
-      mw_aer_mac(iapi1_a)= 152.0 ! C5H12O5
-      mw_aer_mac(iapi2_a)= 168.0 ! C5H12O6
-      mw_aer_mac(iapi3_a)= 136.0 ! SVOC1
-      mw_aer_mac(iapi4_a)= 272.0 ! Dimer1
-      mw_aer_mac(ilim1_a)= 136.0 ! SVOC2
-      mw_aer_mac(ilim2_a)= 272.0 ! Dimer2
-
-! molecular weights of compounds
-      mw_comp_a(jnh4so4) = 132.0
-      mw_comp_a(jlvcite) = 247.0
-      mw_comp_a(jnh4hso4)= 115.0
-      mw_comp_a(jnh4msa) = 113.0
-      mw_comp_a(jnh4no3) = 80.0
-      mw_comp_a(jnh4cl)  = 53.5
-      mw_comp_a(jnacl)   = 58.5
-      mw_comp_a(jnano3)  = 85.0
-      mw_comp_a(jna2so4) = 142.0
-      mw_comp_a(jna3hso4)= 262.0
-      mw_comp_a(jnahso4) = 120.0
-      mw_comp_a(jnamsa)  = 118.0
-      mw_comp_a(jcaso4)  = 136.0
-      mw_comp_a(jcamsa2) = 230.0
-      mw_comp_a(jcano3)  = 164.0
-      mw_comp_a(jcacl2)  = 111.0
-      mw_comp_a(jcaco3)  = 100.0
-      mw_comp_a(jh2so4)  = 98.0
-      mw_comp_a(jhhso4)  = 98.0
-      mw_comp_a(jhno3)   = 63.0
-      mw_comp_a(jhcl)    = 36.5
-      mw_comp_a(jmsa)    = 96.0
-      mw_comp_a(joc)	 = 1.0
-      mw_comp_a(jbc)	 = 1.0
-      mw_comp_a(join)    = 1.0
-      mw_comp_a(jaro1)	 = 150.0
-      mw_comp_a(jaro2)	 = 150.0
-      mw_comp_a(jaro3)	 = 150.0
-      mw_comp_a(jaro4)	 = 150.0
-      mw_comp_a(jalk1)	 = 140.0
-      mw_comp_a(jole1)	 = 140.0
-
-      mw_comp_a(japi1)	 = 152.0 ! C5H12O5
-      mw_comp_a(japi2)	 = 168.0 ! C5H12O6
-      mw_comp_a(japi3)	 = 136.0 ! SVOC1
-      mw_comp_a(japi4)	 = 272.0 ! Dimer1
-      mw_comp_a(jlim1)	 = 136.0 ! SVOC2
-      mw_comp_a(jlim2)	 = 272.0 ! Dimer2
-
-      mw_comp_a(jh2o)    = 18.0
 
 ! densities of generic aerosol species
       dens_aer_mac(iso4_a) = 1.8	! used
@@ -6310,25 +6312,27 @@
       kappa_aer_mac(ilim1_a) = 0.1
       kappa_aer_mac(ilim2_a) = 0.1
 
+
 ! partial molar volumes of condensing species
       partial_molar_vol(ih2so4_g) = 51.83
       partial_molar_vol(ihno3_g)  = 31.45
       partial_molar_vol(ihcl_g)   = 20.96
       partial_molar_vol(inh3_g)   = 24.03
       partial_molar_vol(imsa_g)   = 53.33
-      partial_molar_vol(iaro1_g)  = 150.0
-      partial_molar_vol(iaro2_g)  = 150.0
-      partial_molar_vol(iaro3_g)  = 150.0
-      partial_molar_vol(iaro4_g)  = 150.0
-      partial_molar_vol(ialk1_g)  = 140.0
-      partial_molar_vol(iole1_g)  = 140.0
+      partial_molar_vol(iaro1_g)  = mw_gas_mac(iaro1_g)/dens_aer_mac(iaro1_a)
+      partial_molar_vol(iaro2_g)  = mw_gas_mac(iaro2_g)/dens_aer_mac(iaro2_a)
+      partial_molar_vol(iaro3_g)  = mw_gas_mac(iaro3_g)/dens_aer_mac(iaro3_a)
+      partial_molar_vol(iaro4_g)  = mw_gas_mac(iaro4_g)/dens_aer_mac(iaro4_a)
+      partial_molar_vol(ialk1_g)  = mw_gas_mac(ialk1_g)/dens_aer_mac(ialk1_a)
+      partial_molar_vol(iole1_g)  = mw_gas_mac(iole1_g)/dens_aer_mac(iole1_a)
 
-      partial_molar_vol(iapi1_g)  = 152.0/1.4 ! C5H12O5
-      partial_molar_vol(iapi2_g)  = 168.0/1.4 ! C5H12O6
-      partial_molar_vol(iapi3_g)  = 136.0/1.4 ! SVOC1
-      partial_molar_vol(iapi4_g)  = 272.0/1.4 ! Dimer1
-      partial_molar_vol(ilim1_g)  = 136.0/1.4 ! SVOC2
-      partial_molar_vol(ilim2_g)  = 272.0/1.4 ! Dimer2
+      partial_molar_vol(iapi1_g)  = mw_gas_mac(iapi1_g)/dens_aer_mac(iapi1_a)
+      partial_molar_vol(iapi2_g)  = mw_gas_mac(iapi2_g)/dens_aer_mac(iapi2_a)
+      partial_molar_vol(iapi3_g)  = mw_gas_mac(iapi3_g)/dens_aer_mac(iapi3_a)
+      partial_molar_vol(iapi4_g)  = mw_gas_mac(iapi4_g)/dens_aer_mac(iapi4_a)
+      partial_molar_vol(ilim1_g)  = mw_gas_mac(ilim1_g)/dens_aer_mac(ilim1_a)
+      partial_molar_vol(ilim2_g)  = mw_gas_mac(ilim2_g)/dens_aer_mac(ilim2_a)
+
 
 ! refractive index
       ref_index_a(jnh4so4) = cmplx(1.52,0.)
@@ -9206,7 +9210,7 @@
 
 	  if(kc_firstorder(iv) .ge. 0.01)then	! APPROXIMATION 1
 
-	    Kg(iv,ibin) = cdum*kg_mtc			! overall gas-side mt rate constant (1/s)
+	    Kg(iv,ibin) = cdum*kg_mtc		! overall gas-side mt rate constant (1/s)
 
 	  else ! kc_firstorder(iv) < 0.01	! APPROXIMATION 2
 
@@ -9326,13 +9330,17 @@
          comp_a(join) = aer(ioin_a, jtotal,ibin)*mw_comp_a(join )*1.e-15	! g/cc(air)
 	 comp_a(jaro1)= aer(iaro1_a,jtotal,ibin)*mw_comp_a(jaro1)*1.e-15	! g/cc(air)
 	 comp_a(jaro2)= aer(iaro2_a,jtotal,ibin)*mw_comp_a(jaro2)*1.e-15	! g/cc(air)
+	 comp_a(jaro3)= aer(iaro3_a,jtotal,ibin)*mw_comp_a(jaro3)*1.e-15	! g/cc(air)
+	 comp_a(jaro4)= aer(iaro4_a,jtotal,ibin)*mw_comp_a(jaro4)*1.e-15	! g/cc(air)
 	 comp_a(jalk1)= aer(ialk1_a,jtotal,ibin)*mw_comp_a(jalk1)*1.e-15	! g/cc(air)
 	 comp_a(jole1)= aer(iole1_a,jtotal,ibin)*mw_comp_a(jole1)*1.e-15	! g/cc(air)
 	 comp_a(japi1)= aer(iapi1_a,jtotal,ibin)*mw_comp_a(japi1)*1.e-15	! g/cc(air)
 	 comp_a(japi2)= aer(iapi2_a,jtotal,ibin)*mw_comp_a(japi2)*1.e-15	! g/cc(air)
+	 comp_a(japi3)= aer(iapi3_a,jtotal,ibin)*mw_comp_a(japi3)*1.e-15	! g/cc(air)
+	 comp_a(japi4)= aer(iapi4_a,jtotal,ibin)*mw_comp_a(japi4)*1.e-15	! g/cc(air)
 	 comp_a(jlim1)= aer(ilim1_a,jtotal,ibin)*mw_comp_a(jlim1)*1.e-15	! g/cc(air)
 	 comp_a(jlim2)= aer(ilim2_a,jtotal,ibin)*mw_comp_a(jlim2)*1.e-15	! g/cc(air)
-         comp_a(jh2o) = water_a(ibin)*1.e-3				! g/cc(air)
+         comp_a(jh2o) = water_a(ibin)*1.e-3					! g/cc(air)
 
          rixvol_tot   = (0.0,0.0)
          do jc = 1, naercomp
